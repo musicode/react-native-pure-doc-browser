@@ -16,20 +16,28 @@
     return [NSURL fileURLWithPath:self.path];
 }
 
+- (void)previewControllerDidDismiss:(QLPreviewController *)controller {
+    self.controller = nil;
+}
+
 RCT_EXPORT_MODULE(RNTDocBrowser);
 
 RCT_EXPORT_METHOD(open:(NSDictionary*)options) {
     
     self.path = [RCTConvert NSString:options[@"path"]];
     
-    QLPreviewController *controller = [[QLPreviewController alloc] init];
-    controller.dataSource = self;
-    controller.delegate = self;
-
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    if (rootViewController != nil) {
-        [rootViewController presentViewController:controller animated:YES completion:nil];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.controller = [[QLPreviewController alloc] init];
+        self.controller.dataSource = self;
+        self.controller.delegate = self;
+        
+        UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        if (rootViewController != nil) {
+            [rootViewController presentViewController:self.controller animated:YES completion:nil];
+        }
+        
+    });
     
 }
 
