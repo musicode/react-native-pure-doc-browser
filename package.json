@@ -1,0 +1,27 @@
+{
+  "name": "react-native-pure-doc-browser",
+  "version": "0.0.1",
+  "description": "react native doc browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musicode/react-native-pure-doc-browser.git"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "doc browser"
+  ],
+  "author": "musicode",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musicode/react-native-pure-doc-browser/issues"
+  },
+  "homepage": "https://github.com/musicode/react-native-pure-doc-browser#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
+}
