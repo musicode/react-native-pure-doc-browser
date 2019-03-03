@@ -1,5 +1,6 @@
 package com.github.musicode.docbrowser;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -39,6 +40,10 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             Uri uri = Uri.fromFile(file);
             intent.setDataAndType(uri, mimeType);
+            Activity activity = reactContext.getCurrentActivity();
+            if (activity != null) {
+                activity.startActivity(intent);
+            }
         }
 
     }
