@@ -12,7 +12,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 
 import java.io.File;
-import java.net.URLConnection;
 
 public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
 
@@ -32,12 +31,12 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
     public void open(ReadableMap options) {
 
         String path = options.getString("path");
+        String mimeType = options.getString("mimeType");
 
         File file = new File(path);
-        String mimeType = URLConnection.guessContentTypeFromName(file.getName());
 
         Activity activity = reactContext.getCurrentActivity();
-        if (activity != null && mimeType != null && !mimeType.isEmpty()) {
+        if (activity != null) {
 
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.addCategory(Intent.CATEGORY_DEFAULT);
@@ -47,7 +46,7 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                 Uri uri = FileProvider.getUriForFile(activity, getReactApplicationContext().getPackageName() + ".provider", file);
                 intent.setDataAndType(uri, mimeType);
-                intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             }
             else {
                 Uri uri = Uri.fromFile(file);
@@ -58,7 +57,6 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
             activity.startActivity(intent);
 
         }
-
     }
 
 }
