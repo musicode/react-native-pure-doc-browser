@@ -22,7 +22,9 @@
 
 RCT_EXPORT_MODULE(RNTDocBrowser);
 
-RCT_EXPORT_METHOD(open:(NSDictionary*)options) {
+RCT_EXPORT_METHOD(open:(NSDictionary*)options
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
     
     self.path = [RCTConvert NSString:options[@"path"]];
     
@@ -36,6 +38,8 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options) {
         if (rootViewController != nil) {
             [rootViewController presentViewController:self.controller animated:YES completion:nil];
         }
+        
+        resolve(@[]);
         
     });
     

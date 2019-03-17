@@ -2,16 +2,20 @@ package com.github.musicode.docbrowser;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.FileProvider;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 
 import java.io.File;
+import java.util.List;
 
 public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
 
@@ -28,7 +32,7 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void open(ReadableMap options) {
+    public void open(ReadableMap options, final Promise promise) {
 
         String path = options.getString("path");
         String mimeType = options.getString("mimeType");
@@ -54,7 +58,14 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             }
 
-            activity.startActivity(intent);
+            List list = reactContext.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+            if (list.size() > 0) {
+                activity.startActivity(intent);
+                promise.resolve(Arguments.createArray());
+            }
+            else {
+                promise.reject("1", "no activity for intent.");
+            }
 
         }
     }
