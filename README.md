@@ -9,6 +9,18 @@ npm i react-native-pure-doc-browser
 react-native link react-native-pure-doc-browser
 ```
 
+## Setup
+
+### iOS
+
+After `react-native link`, nothing you need to do.
+
+### Android
+
+Make sure there is a [ContentProvider](https://developer.android.com/reference/android/support/v4/content/FileProvider.html) in your application, and the `authorities` is `${your package id}.provider`.
+
+If you are using [rn-fetch-blob](https://github.com/joltup/rn-fetch-blob), nothing you need to do, because `rn-fetch-blob` has a suitable `ContentProvider`.
+
 ## Usage
 
 ```js
