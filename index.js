@@ -1,4 +1,3 @@
+import DocBrowser from './js/DocBrowser'
 
-import { NativeModules } from 'react-native'
-
-export default NativeModules.RNTDocBrowser
+export default DocBrowser

@@ -37,9 +37,11 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
         UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
         if (rootViewController != nil) {
             [rootViewController presentViewController:self.controller animated:YES completion:nil];
+            resolve(@[]);
         }
-        
-        resolve(@[]);
+        else {
+            reject(@"1", @"rootViewController is nil", nil);
+        }
         
     });
     

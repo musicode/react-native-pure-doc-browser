@@ -64,7 +64,7 @@ public class RNTDocBrowserModule extends ReactContextBaseJavaModule {
                 promise.resolve(Arguments.createArray());
             }
             else {
-                promise.reject("1", "no activity for intent.");
+                promise.reject("1", "no activity for the intent.");
             }
 
         }

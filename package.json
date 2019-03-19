@@ -1,6 +1,6 @@
 {
   "name": "react-native-pure-doc-browser",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react native doc browser",
   "main": "index.js",
   "scripts": {
@@ -13,10 +13,11 @@
   "keywords": [
     "react",
     "native",
-    "doc browser"
+    "doc browser",
+    "doc preview"
   ],
   "author": "musicode",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/musicode/react-native-pure-doc-browser/issues"
   },
