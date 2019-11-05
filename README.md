@@ -6,6 +6,8 @@ This is a module which help you preview a document file, such as word, excel, pp
 
 ```
 npm i react-native-pure-doc-browser
+
+// link below 0.60 version
 react-native link react-native-pure-doc-browser
 ```
 
@@ -38,7 +40,8 @@ DocBrowser.open({
   let { code } = error
 
   // android
-  // 1: has no activity for the intent
+  // 1. file is not existed
+  // 2: has no activity for the intent
 
 })
 ```
