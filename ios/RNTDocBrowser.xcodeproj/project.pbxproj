@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D372967222BE971005878A7 /* RNTDocBrowserModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D372966222BE971005878A7 /* RNTDocBrowserModule.m */; };
-		9D372968222BE971005878A7 /* RNTDocBrowserModule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D372965222BE971005878A7 /* RNTDocBrowserModule.h */; };
+		9D372967222BE971005878A7 /* RNTDocBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D372966222BE971005878A7 /* RNTDocBrowser.m */; };
+		9D372968222BE971005878A7 /* RNTDocBrowser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9D372965222BE971005878A7 /* RNTDocBrowser.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +18,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				9D372968222BE971005878A7 /* RNTDocBrowserModule.h in CopyFiles */,
+				9D372968222BE971005878A7 /* RNTDocBrowser.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +26,8 @@
 
 /* Begin PBXFileReference section */
 		9D372962222BE971005878A7 /* libRNTDocBrowser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTDocBrowser.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D372965222BE971005878A7 /* RNTDocBrowserModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTDocBrowserModule.h; sourceTree = "<group>"; };
-		9D372966222BE971005878A7 /* RNTDocBrowserModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTDocBrowserModule.m; sourceTree = "<group>"; };
+		9D372965222BE971005878A7 /* RNTDocBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTDocBrowser.h; sourceTree = "<group>"; };
+		9D372966222BE971005878A7 /* RNTDocBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTDocBrowser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 		9D372964222BE971005878A7 /* RNTDocBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				9D372965222BE971005878A7 /* RNTDocBrowserModule.h */,
-				9D372966222BE971005878A7 /* RNTDocBrowserModule.m */,
+				9D372965222BE971005878A7 /* RNTDocBrowser.h */,
+				9D372966222BE971005878A7 /* RNTDocBrowser.m */,
 			);
 			path = RNTDocBrowser;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D372967222BE971005878A7 /* RNTDocBrowserModule.m in Sources */,
+				9D372967222BE971005878A7 /* RNTDocBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

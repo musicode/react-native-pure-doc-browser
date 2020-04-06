@@ -26,9 +26,9 @@ If you are using [rn-fetch-blob](https://github.com/joltup/rn-fetch-blob), nothi
 ## Usage
 
 ```js
-import DocBrowser from 'react-native-pure-doc-browser'
+import docBrowser from 'react-native-pure-doc-browser'
 
-DocBrowser.open({
+docBrowser.open({
   path: 'local file path',
   // mimeType is android only
   mimeType: 'application/pdf'
