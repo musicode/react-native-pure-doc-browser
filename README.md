@@ -39,9 +39,9 @@ docBrowser.open({
 .catch(error => {
   let { code } = error
 
-  // android
   // 1. file is not existed
-  // 2: has no activity for the intent
+  // 2: ios: viewController is nil
+  // 2: android: has no activity for the intent
 
 })
 ```

@@ -53,7 +53,7 @@ class RNTDocBrowserModule(private val reactContext: ReactApplicationContext) : R
         val list = reactContext.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
         if (list.size > 0) {
             activity.startActivity(intent)
-            promise.resolve(Arguments.createArray())
+            promise.resolve(Arguments.createMap())
         } else {
             promise.reject("2", "no activity for the intent.")
         }

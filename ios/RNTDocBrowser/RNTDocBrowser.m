@@ -30,23 +30,28 @@ RCT_EXPORT_MODULE(RNTDocBrowser);
 RCT_EXPORT_METHOD(open:(NSDictionary*)options
                   resolve:(RCTPromiseResolveBlock)resolve
                   reject:(RCTPromiseRejectBlock)reject) {
-    
-    self.path = [RCTConvert NSString:options[@"path"]];
-    
+
+    NSString *path = [RCTConvert NSString:options[@"path"]];
+    if (![NSFileManager.defaultManager fileExistsAtPath:path]) {
+        reject(@"1", @"file is not existed.", nil);
+        return;
+    }
+
+    self.path = path;
 
     self.controller = [[QLPreviewController alloc] init];
     self.controller.dataSource = self;
     self.controller.delegate = self;
-    
+
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     if (rootViewController != nil) {
         [rootViewController presentViewController:self.controller animated:YES completion:nil];
-        resolve(@[]);
+        resolve(@{});
     }
     else {
-        reject(@"1", @"rootViewController is nil", nil);
+        reject(@"2", @"rootViewController is nil.", nil);
     }
-    
+
 }
 
 @end
