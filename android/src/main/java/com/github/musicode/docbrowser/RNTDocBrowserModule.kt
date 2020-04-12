@@ -39,7 +39,6 @@ class RNTDocBrowserModule(private val reactContext: ReactApplicationContext) : R
         intent.addCategory(Intent.CATEGORY_DEFAULT)
 
         // https://developer.android.com/reference/androidx.core.content.FileProvider.html
-        // rb-fetch-blob 实现了一个 fileprovider，直接用它的
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             val uri = FileProvider.getUriForFile(activity, reactApplicationContext.packageName + ".provider", file)
             intent.setDataAndType(uri, mimeType)
