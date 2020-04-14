@@ -62,8 +62,19 @@ RCT_EXPORT_METHOD(open:(NSDictionary*)options
     controller.dataSource = self;
     controller.delegate = self;
 
-    [RCTPresentedViewController() presentViewController:controller animated:YES completion:nil];
-    resolve(@{});
+    UIViewController *root = RCTKeyWindow().rootViewController;
+    UIViewController *presented = RCTPresentedViewController();
+    
+    if (presented && root != presented) {
+        [root dismissViewControllerAnimated:YES completion:^ {
+            [root presentViewController:controller animated:YES completion:nil];
+            resolve(@{});
+        }];
+    }
+    else {
+        [root presentViewController:controller animated:YES completion:nil];
+        resolve(@{});
+    }
 
 }
 
