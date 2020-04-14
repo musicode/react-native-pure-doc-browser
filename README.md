@@ -14,9 +14,12 @@ react-native link react-native-pure-doc-browser
 ## Usage
 
 ```js
-import docBrowser from 'react-native-pure-doc-browser'
+import {
+  CODE,
+  open,
+} from 'react-native-pure-doc-browser'
 
-docBrowser.open({
+open({
   path: 'local file path',
   // mimeType is android only
   mimeType: 'application/pdf'
@@ -25,11 +28,11 @@ docBrowser.open({
   // success
 })
 .catch(error => {
-  let { code } = error
+  if (error.code === CODE.FILE_NOT_FOUND) {
 
-  // 1. file is not existed
-  // 2: ios: viewController is nil
-  // 2: android: has no activity for the intent
+  }
+  else if (error.code === CODE.APP_NOT_FOUND) {
 
+  }
 })
 ```
