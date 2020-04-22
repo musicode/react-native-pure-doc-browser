@@ -1,5 +1,7 @@
 # react-native-pure-doc-browser
 
+> This repo is deprecated, please visit the new [fs](https://github.com/react-native-hero/fs) repo.
+
 This is a module which help you preview a document file, such as word, excel, ppt and pdf.
 
 ## Installation
